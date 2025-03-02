@@ -1,0 +1,28 @@
+<RCC>
+  <qresource prefix="/">
+    <file>qrc/ble.png</file>
+    <file>qrc/bluetooth.png</file>
+    <file>qrc/save.png</file>
+    <file>qrc/background_400x300.png</file>
+    <file>qrc/bicycle.gif</file>
+    <file>qrc/cats.gif</file>
+    <file>qrc/clear.png</file>
+    <file>qrc/communicate.png</file>
+    <file>qrc/failed.png</file>
+    <file>qrc/find.png</file>
+    <file>qrc/logo.png</file>
+    <file>qrc/logo_app.ico</file>
+    <file>qrc/logo_app.png</file>
+    <file>qrc/send.png</file>
+    <file>qrc/start.ico</file>
+    <file>qrc/succeed.png</file>
+    <file>qrc/text.png</file>
+    <file>qrc/uart.png</file>
+    <file>qrc/video.png</file>
+    <file>qrc/waiting.png</file>
+    <file>qrc/wifi.png</file>
+    <file>qrc/wifi_connecting.gif</file>
+    <file>qrc/background.png</file>
+    <file>qrc/failed.png</file>
+  </qresource>
+</RCC>
