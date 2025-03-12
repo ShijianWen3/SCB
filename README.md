@@ -25,8 +25,7 @@ int main(int argc, char* argv[])
     {
         ip_address = argv[1];
     }
-    std::thread t_framesend(thread_FrameSend, ip_address);
-	int sock = socket(AF_INET, SOCK_DGRAM, 0); // 创建 UDP 套接字
+    int sock = socket(AF_INET, SOCK_DGRAM, 0); // 创建 UDP 套接字
     if (sock < 0) 
     {
         std::cerr << "Error: Unable to create socket." << std::endl;
