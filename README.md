@@ -33,10 +33,10 @@ int main(int argc, char* argv[])
         return;
     }
 	cv::VideoCapture cap(0);
-    sockaddr_in serverAddr{};
-    serverAddr.sin_family = AF_INET;
-    serverAddr.sin_port = htons(8800); // 目标端口
-    serverAddr.sin_addr.s_addr = inet_addr(ip_address); // PC 端 IP
+    	sockaddr_in serverAddr{};
+    	serverAddr.sin_family = AF_INET;
+    	serverAddr.sin_port = htons(8800); // 目标端口
+    	serverAddr.sin_addr.s_addr = inet_addr(ip_address); // PC 端 IP
 	cv::Mat frame2send;
 	while(1)
 	{
