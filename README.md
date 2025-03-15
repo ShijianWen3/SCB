@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
 	cv::Mat frame2send;
 	while(1)
 	{
-		frame2send << cap;
+		cap >> frame2send;
 		std::vector<uchar> buffer;
 		std::vector<int> encode_params = {cv::IMWRITE_JPEG_QUALITY, 30};
 		// 将帧编码为 JPEG 格式
