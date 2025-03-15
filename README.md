@@ -20,6 +20,7 @@ TCP/UDP支持图传
 #include <netinet/in.h>
 #include <unistd.h>
 #include <arpa/inet.h>
+#include <opencv2/opencv.hpp>
 int main(int argc, char* argv[])
 {
     const char* ip_address;
