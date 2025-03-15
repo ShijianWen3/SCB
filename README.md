@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
 		std::vector<uchar> buffer;
 		std::vector<int> encode_params = {cv::IMWRITE_JPEG_QUALITY, 30};
 		// 将帧编码为 JPEG 格式
-		cv::imencode(".jpg", frame_send, buffer,encode_params);
+		cv::imencode(".jpg", frame2send, buffer,encode_params);
 		// 发送数据
 		sendto(sock, buffer.data(), buffer.size(), 0, (sockaddr*)&serverAddr, sizeof(serverAddr));
 	}
