@@ -15,6 +15,11 @@ TCP/UDP支持图传
 #### framesend.cpp
 
 ```cpp
+
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <unistd.h>
+#include <arpa/inet.h>
 int main(int argc, char* argv[])
 {
     const char* ip_address;
