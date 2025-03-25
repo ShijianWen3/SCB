@@ -1,20 +1,36 @@
-# 简单的Qt6上位机程序
-以集成各种通信方式的桌面端调试上位机为目的的上位机, 起源于一个大创项目.
-后续为了智能车龙芯组别的调试,又加上了图传.
+## 简单的Qt6上位机程序
 
-## 目前支持:UART TCP/UDP Bluetooth/BLE
+**以 <u>集成各种通信方式 </u>为目的的桌面端调试上位机，起源于一个大创项目。后续为了用于智能车龙芯赛道的图像调试，为TCP/UDP加上了图像传输及处理功能。**
 
-TCP/UDP支持图传
--------------
-### 如何使用:
+------
 
-----
 
-***1.在下位机中添加此程序:*** 
 
-#### framesend.cpp
+### 目前支持：UART TCP/UDP Bluetooth/BLE
 
-```cpp
+#### 1.UART：实现收发信息
+
+#### 2.TCP/UDP：实现收发信息，同时针对图像编码数据进行解码，对接收帧进行图像处理(OpenCV)
+
+#### 3.Bluetooth/BLE：实现收发信息
+
+------
+
+
+
+### To DO List：
+
+- [ ] **优化图像处理线程，避免阻塞UI主线程**
+
+- [ ] **将蓝牙与BLE实现方式从Qt6自带库替换为移植性更强的开源库**
+
+------
+
+#### ***·如何使用图传：***
+
+##### 1.在下位机添加此程序：
+
+```c++
 
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -39,11 +55,11 @@ int main(int argc, char* argv[])
         return;
     }
 	cv::VideoCapture cap(0);
-    	sockaddr_in serverAddr{};
-    	serverAddr.sin_family = AF_INET;
-    	serverAddr.sin_port = htons(8800); // 目标端口
-    	serverAddr.sin_addr.s_addr = inet_addr(ip_address); // PC 端 IP
-	cv::Mat frame2send;
+    sockaddr_in serverAddr{};
+    serverAddr.sin_family = AF_INET;
+    serverAddr.sin_port = htons(8800); // 目标端口
+    serverAddr.sin_addr.s_addr = inet_addr(ip_address); // PC 端 IP
+    cv::Mat frame2send;
 	while(1)
 	{
 		cap >> frame2send;
@@ -57,9 +73,9 @@ int main(int argc, char* argv[])
 	return 0;
 }
 ```
-***2.编译运行:***
-`./main.exe 192.168.0.0`后跟你要发送的ip
 
-*在上位机TCP/UDP界面可以查看本机IP*
+#####   2.编译运行：
 
+`./main.exe <your PC IP>`**假设你编译生成的可执行文件为main.exe**
 
+***在上位机TCP/UDP界面可以查看本机IP***
